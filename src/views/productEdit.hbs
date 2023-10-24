@@ -1,24 +1,24 @@
-<form action="/product/add/{{_id}}" method="post">
+<form action="/product/edit/{{product._id}}" method="post">
     <div>
     <label for="">Ingresar nombre del producto </label>
-    <input type="text" name="name" value="" >
+    <input type="text" name="name" value="{{product.name}}" >
     </div>
 
 
 <div>
 <label for="">Ingrese descripcion del producto</label>
-    <input type="text" name="desc" >
+    <input type="text" name="desc" value="{{product.desc}}">
 </div>
 
 <div>
    <label for="">Ingrese el precio en $</label>
-    <input type="number" name="price" >
+    <input type="number" name="price" value="{{product.precio}}" >
 
 </div>
 <div>
 
 <label for="">Ingrese la cantidad en stock</label>
-    <input type="number" name="stock" >
+    <input type="number" name="stock" value="{{product.stock}}">
 
 </div>
     
