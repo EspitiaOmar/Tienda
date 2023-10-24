@@ -27,6 +27,17 @@ router.get("/product/edit/:id", async (req, res) => {
   res.render("productEdit", { product: product });
 });
 
-router.post("/product/edit/:id", async (req, res) => {});
+router.post("/product/edit/:id", async (req, res) => {
+  await productSchema.findByIdAndUpdate(req.params.id, req.body);
+  const producto = await productSchema.find().lean();
+  res.render("productoList", { producto: producto });
+  res.render("productoList");
+});
+
+router.get("/producto/delete/:id", async (req, res) => {
+  await productSchema.findByIdAndDelete(req.params.id, req.body);
+  const producto = await productSchema.find().lean();
+  res.render("productoList", { producto: producto });
+});
 
 module.exports = router;

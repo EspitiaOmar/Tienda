@@ -29,6 +29,8 @@ router.get("/consumidor/edit/:id", async (req, res) => {
 
 router.post("/consumidor/edit/:id", async (req, res) => {
   await userSchema.findByIdAndUpdate(req.params.id, req.body);
+  const usuarios = await userSchema.find().lean();
+  res.render("usuariosList", { usuarios: usuarios });
   res.render("usuariosList");
 });
 
@@ -36,7 +38,5 @@ router.get("/consumidor/delete/:id", async (req, res) => {
   await userSchema.findByIdAndDelete(req.params.id, req.body);
   res.render("usuariosList");
 });
-
-
 
 module.exports = router;
