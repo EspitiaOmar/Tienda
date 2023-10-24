@@ -1,24 +1,33 @@
 const express = require("express");
-//const exphbs = require('express-handlebars');
+const { create }= require("express-handlebars");
+const path =require ("path");
 const morgan = require("morgan");
+
 const indexRoutes = require("./routes/index");
 const consumidorRoutes = require("./routes/consumidor");
 const ordenRoutes = require("./routes/orden");
 const productoRoutes = require("./routes/producto");
-const mongoose = require("mongoose")
+
 const app = express();
 
+app.set("port", process.env.PORT || 4000);
+app.set("views", path.join(__dirname, "views"));
+app.engine(
+  ".hbs",
+  create({
+    layoutsDir: path.join(app.get("views"), "layouts"),
+    partialsDir: path.join(app.get("views"), "partials"),
+    defaulLayout: "main",
+    extname: ".hbs",
+  }).engine
+);
+app.set("view engine", ".hbs");
 app.use(express.json());
 require("dotenv").config();
-mongoose.connect(process.env.MONGODB_URI)
-.then(()=> console.log("conectado"))
-.catch((error)=>console.error(error))
 
-app.set("port", process.env.PORT || 4000);
-
-
-app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
+
 
 app.use(indexRoutes);
 app.use(consumidorRoutes);

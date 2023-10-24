@@ -1,15 +1,29 @@
 const { Router } = require("express");
 const router = Router();
-const userSchema = require("../models/user")
+const userSchema = require("../models/user");
 
-router.get("/consumidor", (req, res) => {
-  res.send("adsadf");
+router.post("/consumidor/add", async (req, res) => {
+  try {
+    const usuario = userSchema(req.body);
+    await usuario.save();
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-router.post("/consumidor", (req, res) => {
-  const user = userSchema(req.body);
-  res.send("crear usuario");
-  user.save().then((data)=>res.json(data)).catch((error)=>(res.json({message: error})))
+router.get("/consumidor/list", async (req, res) => {
+  const usuarios = await userSchema.find().lean();
+  res.render("usuariosList", { usuarios: usuarios });
+});
+
+router.get("/consumidor/edit/:id", async (req, res) => {
+  const usuario = await userSchema.findById(req.params.id).lean();
+  res.render("usuarioEdit", { usuario: usuario });
+});
+
+router.post("/consumidor/edit/:id", async (req, res) => {
+  await userSchema.findByIdAndUpdate(req.params.id, req.body);
+  res.render("usuariosList");
 });
 
 module.exports = router;

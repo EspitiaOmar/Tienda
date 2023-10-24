@@ -1,0 +1,28 @@
+<form action="/consumidor/edit/{{usuario._id}}" method="post">
+    <div>
+    <label for="">Ingresar numero de documento </label>
+    <input type="number" name="dni" value="{{usuario.dni}}">
+    </div>
+
+
+<div>
+<label for="">Ingrese nombre</label>
+    <input type="text" name="name"  value="{{usuario.name}}">
+</div>
+
+<div>
+   <label for="">Ingrese edad</label>
+    <input type="number" name="age" value="{{usuario.age}}" >
+
+</div>
+<div>
+
+<label for="">Celular</label>
+    <input type="number" name="cel" value="{{usuario.cel}}">
+
+</div>
+    
+
+ <button>Confirmar</button>
+    
+</form>

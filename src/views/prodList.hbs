@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>N°</th>
+      <th>Documento</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Telefono</th>
+      <th>acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each usuarios}}
+      <tr>
+        <td>{{@index}}</td>
+        <td>{{name}}</td>
+        <td>{{desc}}</td>
+        <td>{{price}}</td>
+        <td>{{stock}}</td>
+                 
+          <td><a href="productEdit/{{_id}}">EDITAR</a>
+          <a href="/usuarioDel"></a></td>|
+        
+      </tr>
+
+    {{/each}}
+
+  </tbody>
+</table>

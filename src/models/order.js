@@ -1,21 +1,19 @@
 const mongoose = require("mongoose");
+const client = require("user");
+const product = require("product")
 
-const userSchema = mongoose.Schema({
-  id: {
-    type: Number,
+
+const orderSchema = mongoose.Schema({
+  cliente: {
+    type: client,
     required: true,
   },
-  name: {
-    type: String,
+productos: {
+    type: product,
     required: true,
-  },
-  age: {
-    type: Number,
-    required: true,
-  },
-  cel: {
-    type: Number,
-  },
-});
+  }
+
+}
+);
 
 module.exports = mongoose.model("User", userSchema);

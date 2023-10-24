@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>N°</th>
+      <th>Documento</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Telefono</th>
+      <th>acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each usuarios}}
+      <tr>
+        <td>{{@index}}</td>
+        <td>{{dni}}</td>
+        <td>{{name}}</td>
+        <td>{{age}}</td>
+        <td>{{cel}}</td>
+        <td>{{cel}}</td>
+                
+          <td><a href="edit/{{_id}}">EDITAR</a>
+          <a href="usuarioDel/{{_id}}"></a></td>|
+        
+      </tr>
+
+    {{/each}}
+
+  </tbody>
+</table>

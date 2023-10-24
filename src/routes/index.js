@@ -1,8 +1,10 @@
 const { Router } = require("express");
-const router = Router();
+const { request } = require("../app");
+const router = Router("./model/user");
+
 
 router.get("/", (req, res) => {
-  console.log("asdadf");
+  res.render('usuario.hbs')
 });
 
 module.exports = router;
