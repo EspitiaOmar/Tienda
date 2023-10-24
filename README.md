@@ -11,6 +11,12 @@ La base de datos contempla los esquemas de orden, producto y usuario respectivam
 
 ![image](https://github.com/EspitiaOmar/Tienda/assets/148820920/0abeea50-678f-4b32-98e9-987110aa2ec0)
 
+una vez puesto en ejecucion en el navegador se ve de la siguiente manera al momento de insertar y listar registros 
+![image](https://github.com/EspitiaOmar/Tienda/assets/148820920/24fe470a-8e2e-48b5-995f-cdf80e6338e2)
+![image](https://github.com/EspitiaOmar/Tienda/assets/148820920/09c3ec85-db00-47b4-941c-76691a02379c)
+
+
+
 
 
 
